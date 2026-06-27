@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Commitment Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    
+<div class="container mt-5">
+
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">{{ commitment[1] }}</h2>
+        <p class="text-muted">
+            AI-powered commitment tracking and execution plan
+        </p>
+    </div>
+
+    <div class="card p-4 mb-4">
+
+        <div class="row">
+
+            <div class="col-md-6">
+                <p>
+                    <strong>📝 Description:</strong><br>
+                    {{ commitment[2] }}
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <p>
+                    <strong>📅 Deadline:</strong><br>
+                    {{ commitment[3] }}
+                </p>
+            </div>
+
+            <div class="col-md-3">
+                <p>
+                    <strong>🏷️ Category:</strong><br>
+                    {{ commitment[4] }}
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    {% if improve_failed %}
+    <div class="alert alert-danger">
+        AI temporarily unavailable. Existing plan has been kept unchanged.
+    </div>
+    {% endif %}
+
+    {% if adaptive_plan %}
+    <div class="alert alert-info">
+        🧠 Adaptive AI Planning Enabled
+        <br>
+        This plan was optimized using insights from previous commitment outcomes.
+    </div>
+    {% endif %}
+
+    <!-- AI PLAN -->
+
+    <h4 class="mb-3">🤖 AI Execution Plan</h4>
+
+    <div class="card p-4 mb-4">
+        <pre class="mb-0">{{ detailed_plan }}</pre>
+    </div>
+
+    <!-- TASKS -->
+
+    <h4 class="mb-3">✅ Task Checklist</h4>
+
+    <div class="card p-3 mb-4">
+
+        <ul class="list-group list-group-flush">
+
+            {% for task in tasks %}
+            <li class="list-group-item">
+
+                <form action="/update_task/{{ task[0] }}" method="post">
+
+                    <input
+                        type="checkbox"
+                        onchange="this.form.submit()"
+
+                        {% if task[3] == 1 %}
+                        checked
+                        {% endif %}
+
+                        {% if deadline_missed %}
+                        disabled
+                        {% endif %}
+                    >
+
+                    {{ task[2] }}
+
+                </form>
+
+            </li>
+            {% endfor %}
+
+        </ul>
+
+    </div>
+
+    <!-- PROGRESS -->
+
+    <h4 class="mb-3">
+        📈 Progress ({{ progress }}%)
+    </h4>
+
+    <div class="progress mb-4">
+        <div class="progress-bar bg-success"
+            role="progressbar"
+            style="width: {{ progress }}%"
+            aria-valuenow="{{ progress }}"
+            aria-valuemin="0"
+            aria-valuemax="100">
+            {{ progress }}%
+        </div>
+    </div>
+
+    <!-- ACTION BUTTONS -->
+
+    <div class="d-flex flex-wrap gap-2 mb-4">
+
+        <a href="/risk/{{ commitment[0] }}"
+           class="btn btn-danger">
+            ⚠️ Analyze Risk
+        </a>
+
+        <a href="/edit/{{ commitment[0] }}"
+           class="btn btn-warning">
+            ✏️ Edit Commitment
+        </a>
+
+        {% if "temporarily unavailable" in commitment[6]|lower %}
+        <a href="/retry_ai/{{ commitment[0] }}"
+           class="btn btn-secondary">
+            🔄 Retry AI
+        </a>
+        {% endif %}
+
+        {% if deadline_missed %}
+        <a href="/failure_analysis/{{ commitment[0] }}"
+           class="btn btn-dark">
+            🧠 Failure Review
+        </a>
+        {% else %}
+        <button class="btn btn-secondary" disabled>
+            🧠 Failure Review
+        </button>
+        {% endif %}
+
+    </div>
+
+    <!-- RISK ANALYSIS -->
+
+    {% if risk %}
+    <div class="card p-4 border-warning mb-4">
+
+        <h5>⚠️ AI Risk Analysis</h5>
+
+        <pre class="mb-0">{{ risk }}</pre>
+
+    </div>
+
+        {% if show_improve %}
+        <a href="/improve/{{ commitment[0] }}"
+           class="btn btn-warning">
+            📈 Improve Plan
+        </a>
+        {% endif %}
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Commitment</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+
+    <div class="text-center mb-5">
+
+        <h1 class="fw-bold">
+            Edit Commitment
+        </h1>
+
+        <p class="text-muted">
+            Update your commitment details and regenerate an optimized AI plan.
+        </p>
+
+    </div>
+
+    <div class="card">
+
+        <div class="card-body p-4">
+
+            <form method="POST">
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-semibold">
+                        Commitment Title
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="title"
+                        value="{{ commitment[1] }}"
+                    >
+
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-semibold">
+                        Description
+                    </label>
+
+                    <textarea
+                        class="form-control"
+                        name="description"
+                        rows="5"
+                    >{{ commitment[2] }}</textarea>
+
+                </div>
+
+                <div class="mb-4">
+
+                    <label class="form-label fw-semibold">
+                        Deadline
+                    </label>
+
+                    <input
+                        type="date"
+                        class="form-control"
+                        name="deadline"
+                        value="{{ commitment[3] }}"
+                    >
+
+                </div>
+
+                <button class="btn btn-primary btn-lg w-100">
+                    💾 Save Changes
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

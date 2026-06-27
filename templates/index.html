@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CommitMate AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold display-5">
+                CommitMate AI
+            </h1>
+            <p class="text-muted fs-5">
+                Your AI-powered commitment companion
+            </p>
+        </div>
+        <div class="card mb-5">
+            <div class="card-body p-4">
+                <h4 class="mb-4">
+                    🤖 Welcome to CommitMate AI
+                </h4>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    🎯 Manage commitments with AI-generated action plans
+                </li>
+                <li class="list-group-item">
+                    📈 Track task completion and monitor progress
+                </li>
+                <li class="list-group-item">
+                    ⚠️ Detect risks before deadlines are missed
+                </li>
+                <li class="list-group-item">
+                    🧠 Learn from previous failures and improve future planning
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center">
+            <h3 class="mb-4">
+                Dashboard
+            </h3>
+            <a href="/add"
+                class="btn btn-primary btn-lg me-2">
+                ➕ Add Commitment
+            </a>
+            <a href="/view_commitments"
+                class="btn btn-outline-dark btn-lg">
+                📋 View Commitments
+            </a>
+        </div>
+    </div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (!("Notification" in window)) return;
+
+    function showNotification() {
+
+        // Flask values (SAFE)
+        let highRisk = Number("{{ high_risk_count | default(0) }}");
+        let upcoming = Number("{{ upcoming_count | default(0) }}");
+        let missed = Number("{{ missed_count | default(0) }}");
+
+        let title = "📊 CommitMate AI Summary";
+
+        // Smart priority title (based on your categories)
+        if (missed > 0) {
+            title = "🚨 CommitMate AI Alert";
+        } 
+        else if (highRisk > 0) {
+            title = "⚠️ CommitMate AI Alert";
+        } 
+        else if (upcoming > 0) {
+            title = "⏳ CommitMate AI Update";
+        }
+
+        // Clean summary body
+        let message =
+            "📌 Missed: " + missed + "\n" +
+            "⚠️ At Risk: " + highRisk + "\n" +
+            "⏳ Upcoming: " + upcoming;
+
+        new Notification(title, {
+            body: message
+        });
+    }
+
+    // Permission handling (clean + safe)
+    if (Notification.permission === "granted") {
+        showNotification();
+    } 
+    else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(function(permission) {
+            if (permission === "granted") {
+                showNotification();
+            }
+        });
+    }
+
+});
+
+</script>
+</body>
+</html>

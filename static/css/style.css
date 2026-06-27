@@ -1,0 +1,230 @@
+/* =====================================
+   CommitMate AI - Global Styles
+===================================== */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f3f4f6;
+    color: #1f2937;
+    animation: fadeIn 0.4s ease;
+}
+
+/* Container */
+
+.container {
+    max-width: 1200px;
+    padding-bottom: 40px;
+}
+
+/* Headings */
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Muted Text */
+
+.text-muted {
+    color: #6b7280 !important;
+}
+
+/* Cards */
+
+.card {
+    border: none;
+    border-radius: 16px;
+    background: #ffffff;
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,0.04),
+        0 8px 24px rgba(0,0,0,0.05);
+
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.08),
+        0 12px 30px rgba(0,0,0,0.10);
+}
+
+/* Buttons */
+
+.btn {
+    border-radius: 10px !important;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+/* Forms */
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    padding: 10px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.15rem rgba(79,70,229,0.15);
+    border-color: #4f46e5;
+}
+
+/* Progress Bar */
+
+.progress {
+    height: 10px;
+    border-radius: 999px;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.progress-bar {
+    border-radius: 999px;
+}
+
+/* Badges */
+
+.badge {
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-weight: 500;
+}
+
+/* List Group */
+
+.list-group-item {
+    border: none;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+/* HR */
+
+hr {
+    opacity: 0.1;
+}
+
+/* Page Animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-lg {
+    padding: 12px 24px;
+    font-size: 16px;
+}
+
+.display-5 {
+    letter-spacing: -0.5px;
+}
+
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.commitment-card {
+    height: 100%;
+}
+
+.commitment-card h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.commitment-card .deadline {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.dashboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.dashboard-header h2 {
+    font-weight: 700;
+}
+
+.progress {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.badge {
+    font-size: 12px;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+    margin: 0;
+}
+
+.list-group-item {
+    border: none;
+    padding: 12px 0;
+}
+
+.alert {
+    border-radius: 12px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.15);
+    margin-right: 10px;
+}
+
+.form-check {
+    padding: 10px 0;
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+.form-check-label {
+    cursor: pointer;
+}
+
+textarea {
+    resize: vertical;
+}

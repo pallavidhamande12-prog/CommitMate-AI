@@ -12,51 +12,69 @@ This project was developed for the Google AI Studio Hackathon under the problem 
 
 ## Problem Statement
 
-Students, professionals, and entrepreneurs frequently miss deadlines, assignments, meetings, bill payments, interviews, and important commitments.
+Students, professionals, entrepreneurs, and working individuals frequently miss important deadlines, assignments, meetings, bill payments, interviews, and personal commitments.
 
-Most productivity tools rely on passive reminders that are easy to ignore and provide limited assistance in actually completing tasks.
+Most productivity tools rely on passive reminders that are easy to ignore and provide limited assistance in actually completing tasks. Users often know what they need to do but struggle with planning, prioritization, and consistent execution.
 
-The goal of this project is to create an AI-powered productivity companion that proactively helps users take meaningful action and improve task completion.
+The objective of this project is to build an AI-powered productivity companion that proactively helps users take meaningful action and improve task completion rates.
 
 ---
 
 ## Solution Overview
 
-CommitMate AI uses Google Gemini AI to transform user commitments into structured execution plans.
+CommitMate AI leverages Google Gemini AI to transform commitments into structured execution plans.
 
-The platform assists users by:
+The system assists users by:
 
 - Breaking commitments into manageable tasks
 - Tracking progress toward completion
-- Detecting commitments that are at risk
+- Identifying commitments at risk of failure
 - Providing AI-generated improvement suggestions
 - Learning from past failures to improve future planning
+
+Rather than simply reminding users about deadlines, CommitMate AI focuses on helping users successfully complete their commitments.
 
 ---
 
 ## Key Features
 
-- AI-powered commitment planning
-- Automatic task generation
-- Progress tracking dashboard
-- Risk analysis for commitments
-- AI-generated plan improvement
-- Failure feedback collection
-- Adaptive learning from previous commitments
-- Smart notifications and reminders
+### AI-Powered Commitment Planning
+Generates detailed execution plans using Google Gemini AI.
+
+### Automatic Task Generation
+Converts AI-generated plans into actionable task checklists.
+
+### Progress Tracking
+Tracks task completion and calculates commitment progress.
+
+### Risk Analysis
+Identifies commitments that are likely to miss their deadlines.
+
+### Plan Improvement
+Generates improved plans for high-risk commitments.
+
+### Failure Feedback System
+Collects reasons for missed commitments to understand common challenges.
+
+### Adaptive Learning
+Uses historical failure feedback to generate smarter future recommendations.
+
+### Smart Notifications
+Provides reminders for upcoming, missed, and high-risk commitments.
 
 ---
 
 ## Application Modules
 
 ### Home Page
-Provides an overview of the platform and its features.
+Provides an overview of the platform and its capabilities.
 
 ### Add Commitment
 Allows users to create commitments with deadlines and categories.
 
 ### Dashboard
-Displays commitments grouped into:
+Displays commitments categorized as:
+
 - Active
 - Upcoming
 - High Risk
@@ -64,15 +82,19 @@ Displays commitments grouped into:
 - Completed
 
 ### Commitment Details
-Shows:
+Displays:
+
 - AI-generated execution plan
 - Task checklist
 - Progress tracking
 - Risk analysis
 - Improvement suggestions
 
+### Edit Commitment
+Allows users to update commitment details and regenerate plans.
+
 ### Failure Review
-Collects user feedback on missed commitments to improve future recommendations.
+Collects user feedback on missed commitments and stores learning data.
 
 ---
 
@@ -100,13 +122,13 @@ Collects user feedback on missed commitments to improve future recommendations.
 ## Database Structure
 
 ### commitments
-Stores commitment details, deadlines, categories, plans, and progress information.
+Stores commitment details, deadlines, categories, generated plans, and progress information.
 
 ### tasks
-Stores generated task lists and completion status.
+Stores task checklists and completion status.
 
 ### failure_feedback
-Stores user feedback and learning data used for future recommendations.
+Stores user feedback and learning information used for future recommendations.
 
 ---
 
@@ -116,17 +138,19 @@ Stores user feedback and learning data used for future recommendations.
 - Gemini API
 - Gemini Models
 
+Google Gemini is used to generate execution plans, analyze commitment risks, provide improvement suggestions, and support adaptive planning based on previous user feedback.
+
 ---
 
 ## Project Workflow
 
 1. User creates a commitment.
-2. Gemini AI generates an execution plan.
-3. Tasks are automatically created.
-4. User tracks task completion.
-5. Progress is monitored continuously.
-6. AI performs risk analysis.
-7. Improved plans can be generated if required.
+2. Commitment details are sent to Gemini AI.
+3. Gemini generates a structured execution plan.
+4. Tasks are automatically created and stored.
+5. Users track progress by completing tasks.
+6. AI performs risk analysis based on progress and deadlines.
+7. Improved plans can be generated when required.
 8. Failure feedback is collected for missed commitments.
 9. Future plans are enhanced using historical feedback.
 
@@ -139,12 +163,62 @@ Stores user feedback and learning data used for future recommendations.
 - Mobile application support
 - Personalized scheduling recommendations
 - Advanced productivity analytics
+- Integration with external productivity platforms
 
 ---
 
 ## Installation
 
+### Clone the Repository
+
 ```bash
-git clone <repository-url>
+git clone https://github.com/pallavidhamande12-prog/CommitMate-AI.git
 cd CommitMate-AI
+```
+
+### Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+### Configure Environment Variables
+
+Create a `.env` file in the project root and add:
+
+```env
+DB_HOST=localhost
+DB_USER=your_username
+DB_PASSWORD=your_password
+DB_NAME=commitmate_ai
+
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+### Run the Application
+
+```bash
+python app.py
+```
+
+### Open in Browser
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Repository
+
+GitHub Repository:
+
+https://github.com/pallavidhamande12-prog/CommitMate-AI
+
+---
+
+## Author
+
+**Pallavi Dhamande**
+
+Developed as part of the **Google AI Studio Hackathon 2026**.

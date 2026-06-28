@@ -1,1 +1,36 @@
-a n n o t a t e d - t y p e s = = 0 . 7 . 0  a n y i o = = 4 . 1 4 . 1  b l i n k e r = = 1 . 9 . 0  c e r t i f i = = 2 0 2 6 . 6 . 1 7  c f f i = = 2 . 0 . 0  c h a r s e t - n o r m a l i z e r = = 3 . 4 . 7  c l i c k = = 8 . 4 . 1  c o l o r a m a = = 0 . 4 . 6  c r y p t o g r a p h y = = 4 9 . 0 . 0  d i s t r o = = 1 . 9 . 0  F l a s k = = 3 . 1 . 3  g o o g l e - a u t h = = 2 . 5 5 . 0  g o o g l e - g e n a i = = 2 . 1 0 . 0  h 1 1 = = 0 . 1 6 . 0  h t t p c o r e = = 1 . 0 . 9  h t t p x = = 0 . 2 8 . 1  i d n a = = 3 . 1 8  i t s d a n g e r o u s = = 2 . 2 . 0  J i n j a 2 = = 3 . 1 . 6  M a r k u p S a f e = = 3 . 0 . 3  m y s q l - c o n n e c t o r - p y t h o n = = 9 . 7 . 0  p y a s n 1 = = 0 . 6 . 3  p y a s n 1 _ m o d u l e s = = 0 . 4 . 2  p y c p a r s e r = = 3 . 0  p y d a n t i c = = 2 . 1 3 . 4  p y d a n t i c _ c o r e = = 2 . 4 6 . 4  r e q u e s t s = = 2 . 3 4 . 2  s n i f f i o = = 1 . 3 . 1  t e n a c i t y = = 9 . 1 . 4  t y p i n g - i n s p e c t i o n = = 0 . 4 . 2  t y p i n g _ e x t e n s i o n s = = 4 . 1 5 . 0  u r l l i b 3 = = 2 . 7 . 0  w a t c h d o g = = 6 . 0 . 0  w e b s o c k e t s = = 1 6 . 0  W e r k z e u g = = 3 . 1 . 8   
+Flask==3.1.3
+gunicorn==21.2.0
+mysql-connector-python==9.7.0
+python-dotenv==1.0.0
+google-genai==2.10.0
+requests==2.34.2
+annotated-types==0.7.0
+anyio==4.14.1
+blinker==1.9.0
+certifi==2026.6.17
+cffi==2.0.0
+charset-normalizer==3.4.7
+click==8.4.1
+colorama==0.4.6
+cryptography==49.0.0
+distro==1.9.0
+h11==0.16.0
+httpcore==1.0.9
+httpx==0.28.1
+idna==3.18
+itsdangerous==2.2.0
+Jinja2==3.1.6
+MarkupSafe==3.0.3
+pyasn1==0.6.3
+pyasn1-modules==0.4.2
+pycparser==3.0
+pydantic==2.13.4
+pydantic_core==2.46.4
+sniffio==1.3.1
+tenacity==9.1.4
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+urllib3==2.7.0
+watchdog==6.0.0
+websockets==16.0
+Werkzeug==3.1.8

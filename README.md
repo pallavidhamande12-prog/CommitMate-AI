@@ -182,43 +182,8 @@ cd CommitMate-AI
 pip install -r requirements.txt
 ```
 
-### Configure Environment Variables
-
-Create a `.env` file in the project root and add:
-
-```env
-DB_HOST=localhost
-DB_USER=your_username
-DB_PASSWORD=your_password
-DB_NAME=commitmate_ai
-
-GEMINI_API_KEY=your_gemini_api_key
-```
-
-### Run the Application
-
-```bash
-python app.py
-```
-
-### Open in Browser
-
-```text
-http://localhost:5000
-```
-
----
-
 ## Repository
 
 GitHub Repository:
 
 https://github.com/pallavidhamande12-prog/CommitMate-AI
-
----
-
-## Author
-
-**Pallavi Dhamande**
-
-Developed as part of the **Google AI Studio Hackathon 2026**.
